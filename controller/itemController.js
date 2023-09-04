@@ -75,10 +75,9 @@ const deleteItem = async (req, res, next) => {
         message: "Item with given id not found!",
       });
 
-    res.status(200).json({
+    res.status(204).json({
       status: "success",
       message: "item deleted!",
-      doc: { item },
     });
   } catch (err) {
     res.status(400).json({

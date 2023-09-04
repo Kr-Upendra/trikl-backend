@@ -1,6 +1,8 @@
 import express from "express";
 const app = express();
 
+import itemRoutes from "./routes/itemRoute.js";
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -9,6 +11,8 @@ app.get("/", (req, res) => {
     message: "Happy Coding!",
   });
 });
+
+app.use("/items", itemRoutes);
 
 app.all("*", (req, res) => {
   res.status(404).json({
